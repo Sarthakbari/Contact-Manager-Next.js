@@ -1,0 +1,26 @@
+"use client";
+import React from 'react'
+import { logoutAction } from '../actions/auth';
+import { redirect } from 'next/navigation';
+import { useRouter } from "next/navigation";
+
+function LogoutButton() {
+  const router = useRouter();
+  const handleLogout = async () =>{
+    try {
+      await logoutAction();
+      // The redirect happens in the server actions
+      // This client side redirect is a fallback
+      // redirect("/login");
+      router.push("/login");
+      router.refresh();
+    } catch (error) {
+      console.log("Logout Failed :", error);
+    }
+  };
+  return (
+    <button className='px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors cursor-pointer' onClick={handleLogout}>Logout</button>
+  )
+}
+
+export default LogoutButton
