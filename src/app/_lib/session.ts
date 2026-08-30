@@ -1,9 +1,9 @@
 import { UserType } from "../_types/user";
 import { cookies } from "next/headers";
-
+import { SessionUser } from "../_types/user";
 
 // Set session cookie
-export const setSession = async(user: UserType) => {
+export const setSession = async(user: SessionUser) => {
     (await cookies()).set("session", JSON.stringify(user), {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { ContactType } from "../_types/contact";
 
-const API_URL = "http://localhost:3001";
+// const API_URL = "http://localhost:3001";
+const API_URL = process.env.API_URL;
 
 export const getContacts = async (userId: string) => {
   const response = await axios.get(`${API_URL}/contact`);

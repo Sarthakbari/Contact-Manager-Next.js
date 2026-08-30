@@ -5,7 +5,8 @@ import { redirect } from "next/navigation";
 import { UserType } from "../_types/user";
 import { setSession, deleteSession } from "../_lib/session";
 
-const API_URL = "http://localhost:3001";
+// const API_URL = "http://localhost:3001";
+const API_URL = process.env.API_URL;
 
 export const loginAction = async (formData: FormData) => {
     const email = formData.get("email")?.toString();

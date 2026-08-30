@@ -1,5 +1,12 @@
-export interface UserType{
-    id: string;
-    email: string;
-    name: string;
-}
+export type UserType = {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+};
+
+export type SessionUser = {
+  id: string;
+  name: string;
+  email: string;
+};
